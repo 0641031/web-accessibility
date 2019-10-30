@@ -23,3 +23,24 @@
 * landmarks : semantic tag를 사용한 블록.
 * meaningful heading and link texts, good structure
 * 스크린리더 유저들을 위해서 스크린리더의 작동을 컨트롤 하려고 하지 말아라. 오히려 더 혼란을 줄 수 있다.
+
+### ARIA
+* Web Accessibility Initiative Accessible Rich Internet Applications
+* custom 체크박스 같은 경우, `role="checkbox"` `aria-checked="true"` 추가로 native 체크박스와 같은 스크린 리더 결과를 얻을 수 있다.
+* ARIA는 accessibility tree에만 영향을 준다.
+* HTML에는 없는 aria accessible widget을 만들 수도 있다.
+* aria-label : 버튼을 감싸고 있는 텍스트가 있어도 aria-label이 우선함.
+* aria-labelledby : 참조하고 있는 요소를 가르킬 때 사용. input의 label 처럼 클릭이벤트로 해당 input요소에 이벤트가 적용된다거나 하진 않음. hidden 처리된 요소도 참조할 수 있다. 모든 요소에 오버라이드 할 수 있음. 
+* 기본 시맨틱요소에 role을 재정의하지 않는다.
+* 랜드마크의 경우 브라우저에 따라 시맨틱 엘리먼트에 role을 추가해야 할 수도 있다. 
+* aria-owns : submenu가 있을 때 사용. 여러개의 아이디를 설정해줄 수 있다. 
+* aria-describedby : 부가적인 설명을 더할때. 예를 들어, 비밀번호의 경우 조건을 설명하는 div를 참조. 
+* aria-posinset, aria-setsize : 데이터의 양이 많은 리스트의 경우, 전체 사이즈를 aria-setsize에, 해당 엘리먼트의 데이터를 aria-posinset에 설정하여 화면의 맨 처음으로 해당요소가 나와도 데이터 파악이 수월함.
+* `visibility: hidden`, `display: none`, html의 `hidden` 속성 모두 accessibility tree에서도 사라진다. 브라우저 밖으로 위치를 설정하거나, aria-describedby로 참조한 엘리먼트는 hidden 속성을 주어도 참조가능하다. 
+* aria-hidden 속성은 시각적으로는 보이나, accessibility tree에는 사라짐. 슬라이드가 여러장인 경우, 아직 보이지 않는 슬라이드에 사용함. 
+* aria-live 
+    * polite : 사용자가 하던 것을 마치면 알려주는 것. 중요하지만 급하지 않음. 채팅에서 상대방에게 메세지가 도착했을 때.
+    * assertive : 서버 에러 등과 같은 즉시 알려줘야 되는 사항.
+* aria-live와 함께 사용하는 속성
+    * aria-atomic : date input 처럼 day, month, year 각각 입력하고 전체 데이터를 사용할 때.
+    * aria-relevant : additions - 엘리먼트가 추가되었을 때. 예) 채팅메시지에서 span이 추가.
