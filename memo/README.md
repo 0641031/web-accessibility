@@ -44,3 +44,20 @@
 * aria-live와 함께 사용하는 속성
     * aria-atomic : date input 처럼 day, month, year 각각 입력하고 전체 데이터를 사용할 때.
     * aria-relevant : additions - 엘리먼트가 추가되었을 때. 예) 채팅메시지에서 span이 추가.
+
+### Style
+* 현재 키보드의 포커스가 어디에 있는지 시각적으로 표시를 해줘야 한다.
+* 브라우저의 기본 스타일과 디자인이 안맞을 수 있으므로 (파란배경에 파란 포커스 표시) 적절하게 대응해야 함. 
+* focus outline은 브라우저마다 조금씩 다르기 때문에 outline을 없애고 box shadow 설정을 하는 것도 좋음.
+* radio circle에 스타일을 줄때는 radio:focus::before에 스타일을 준다.
+* native button의 경우 마우스로 클릭할 때는 포커스링이 나타나지 않음 
+* 반응형 디자인은 웹페이지를 확대하면 레이아웃이 그에 맞게 변경됨.
+* meta viewport tag를 설정해줘야 함. `content="width=device-width"` 
+* `max-scale=1` `user-scalable=no` 는 안티패턴. 컨텐츠를 확대하지 못하게 하기 때문. 
+* %, em, rem등의 상대적인 단위를 사용한다.
+* 모바일 화면의 경우, 터치타겟의 영역이 적절한지 고려해야 함. 터치 타겟의 최소 사이즈 48dp. 터치타겟의 margin은 32dp [dp란?](https://blog.cracker9.io/2018/03/13/Android_DPI/)
+* color
+    * 텍스트, 혹은 이미지의 텍스트에는 최소 4.5:1 의 색상 대비가 있어야 함.
+    * 18 point, 혹은 14 point bold 이상의 큰 텍스트는 3:1
+* form 입력에 에러가 발생할 경우, 색으로만 알려주면 안됨. 
+* 컨텐츠를 전달하거나 시각적 요소를 구분하기 위해서 컬러만을 사용하면 안된다.
